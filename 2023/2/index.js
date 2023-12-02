@@ -1,9 +1,11 @@
-const fs = require('fs')
-input = process.argv[2]
-data = fs.readFileSync(input, 'utf8')
-data = data.split('\n')
+const { getData } = require('../utils/utility.js')
+// const fs = require('fs')
+// input = process.argv[2]
+// data = fs.readFileSync(input, 'utf8')
 
-console.log(data)
+data = getData()
+data = data.split('\n')
+// console.log(data)
 
 result = 0
 

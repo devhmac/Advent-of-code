@@ -1,15 +1,13 @@
-const { getData } = require('../utils/utility.js')
-// const fs = require('fs')
-// input = process.argv[2]
-// data = fs.readFileSync(input, 'utf8')
+// const { getData } = require('../utils/utility.js')
+import { getData } from '../utils/utility.js'
 
-data = getData()
+let data = getData()
 data = data.split('\n')
 // console.log(data)
 
-result = 0
+let result = 0
 
-thresholds = {
+const thresholds = {
   green: 13,
   red: 12,
   blue: 14
@@ -19,12 +17,12 @@ for (let i = 0; i < data.length; i++) {
 
   // console.log(data[i].split(/\d+\s\w+/g))
 
-  rounds = data[i].split(';')
+  let rounds = data[i].split(';')
   let check = true
   console.log("rounds ", rounds)
 
   rounds.forEach(round => {
-    count = {
+    let count = {
       green: 0,
       red: 0,
       blue: 0
@@ -32,7 +30,7 @@ for (let i = 0; i < data.length; i++) {
     // console.log("round ", round)
 
 
-    pulls = round.match(/\d+\s\w+/g)
+    let pulls = round.match(/\d+\s\w+/g)
     // console.log(pulls)
     pulls.map((pull) => {
       let [num, color] = pull.split(' ')

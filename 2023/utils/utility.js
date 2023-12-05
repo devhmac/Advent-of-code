@@ -1,10 +1,10 @@
-const fs = require('fs')
+import fs from 'fs';
 const getData = () => {
 
-
-  input = process.argv[2]
-  return data = fs.readFileSync(input, 'utf8')
+  let input = process.argv[2]
+  return fs.readFileSync(input, 'utf8')
 }
 
 
-module.exports = { getData }
+// module.exports = { getData }
+export { getData }

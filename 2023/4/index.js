@@ -16,8 +16,6 @@ for (let i = 0; i < data.length; i++) {
     wHash[num] = (wHash[num] || 0) + 1
   }
 
-  // console.log(ticket, "VS", winners)
-  // console.log("hashes: ", tHash, "VSVSVSV", wHash)
 
   let points = 0
   for (let num in tHash) {
@@ -28,8 +26,5 @@ for (let i = 0; i < data.length; i++) {
 
     }
   }
-  console.log(points)
   result = result + points
-  console.log(result)
-
 }

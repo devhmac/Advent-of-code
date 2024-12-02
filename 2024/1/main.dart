@@ -10,6 +10,7 @@ import 'dart:convert';
 
 String get input {
   File input = new File('1/input.txt');
+  // File input = new File('1/exampleInput.txt');
   return input.readAsStringSync();
 }
 
@@ -23,20 +24,35 @@ void _sortPush(int num, List<int> array) {
   array.add(num);
 }
 
+void _freqCount(key, Map hashMap) {
+  hashMap[key] = (hashMap[key] ?? 0) + 1;
+}
+
 const splitter = LineSplitter();
 main() async {
+  Map<int, int> hash1 = {};
+  Map<int, int> hash2 = {};
   List<int> l1 = [];
   List<int> l2 = [];
-  int diff = 0;
+  int result = 0;
 
   splitter.convert(input).forEach((item) {
     final trimmed = item.trim().split(' ');
-    _sortPush(int.parse(trimmed[0]), l1);
-    _sortPush(int.parse(trimmed[trimmed.length - 1]), l2);
+    final int l1Loc = int.parse(trimmed[0]);
+    final int l2Loc = int.parse(trimmed[trimmed.length - 1]);
+
+    _freqCount(l1Loc, hash1);
+    _freqCount(l2Loc, hash2);
+
+    _sortPush(l1Loc, l1);
+    _sortPush(l2Loc, l2);
   });
 
   for (int i = 0; i < l1.length; i++) {
-    diff += (l1[i] - l2[i]).abs();
+    final rightMatchCount = hash2[l1[i]];
+    if (rightMatchCount != null) {
+      result += (l1[i] * rightMatchCount);
+    }
   }
-  print(diff);
+  print(result);
 }

@@ -1,7 +1,14 @@
+import 'dart:convert';
 import 'dart:io';
 
-String getinput({required String path}) {
-  File input = new File(path);
+const splitter = LineSplitter();
 
-  return input.readAsStringSync();
+String getInput({required String path}) {
+  String input = new File(path).readAsStringSync();
+  return input;
+}
+
+List<String> getLineSplitInput({required String path}) {
+  String input = new File(path).readAsStringSync();
+  return splitter.convert(input);
 }

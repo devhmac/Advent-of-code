@@ -8,7 +8,7 @@ import '../../utils.dart';
 
 // return count of safe reports
 
-String input = getinput(path: '2/part1/input.txt');
+String input = getInput(path: '2/part1/input.txt');
 // String input = getinput(path: '2/part1/example.txt');
 const splitter = LineSplitter();
 
